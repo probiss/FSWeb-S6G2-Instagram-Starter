@@ -29,23 +29,16 @@ const [arama, setArama] = useState('');
         item.likes ++};
         return item;
     }))
-    /*
-      Bu fonksiyon, belirli bir id ile gönderinin beğeni sayısını bir artırma amacına hizmet eder.
-
-      Uygulamanın durumu, React ağacının en üstünde bulunur, ancak iç içe geçmiş bileşenlerin stateleri değiştirememesi adil olmaz!
-      Bu fonksiyon, belirli bir gönderinin beğeni sayısını artırılmasına olanak sağlamak amacıyla iç içe geçmiş bileşenlere aktarılır.
-
-	  "setGonderi" yi çağırın ve state ine "posts.map" çağrısını iletin.
-      `map` içine iletilen callback aşağıdaki mantığı gerçekleştirir:
-        - gönderinin idsi "gonderiID" ile eşleşirse, istenen değerlerle yeni bir gönderi nesnesi döndürün.
-        - aksi takdirde, sadece gönderi nesnesini değiştirmeden döndürün.
-     */
   };
+
+  const aramaYap =(arama) => {
+
+  }
 
   return (
     <div className='App'>
-      <AramaÇubuğu gonderiyiBegen = {gonderiyiBegen} gonderiler= {gonderiler}/>
-      <Gönderiler/>
+      <AramaÇubuğu />
+      <Gönderiler gonderiyiBegen = {gonderiyiBegen} gonderiler= {gonderiler}/>
     </div>
   );
 };
