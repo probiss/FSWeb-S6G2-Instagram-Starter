@@ -15,7 +15,7 @@ import './App.css';
 import sahteVeri from './sahte-veri'
 
 const App = () => {
-const [gonderiler ,setGönderiler] = useState(sahteVeri);
+const [gonderiler ,setGonderiler] = useState(sahteVeri);
 const [arama, setArama] = useState('');
 
   // Gönderi nesneleri dizisini tutmak için "gonderiler" adlı bir state oluşturun, **sahteVeri'yi yükleyin**.
@@ -24,7 +24,7 @@ const [arama, setArama] = useState('');
 	
   const gonderiyiBegen = gonderiID => {
 
-    setGönderiler(gonderiler.map(item => {
+    setGonderiler(gonderiler.map(item => {
       if(gonderiID === item.id) {
         item.likes ++};
         return item;
@@ -32,12 +32,16 @@ const [arama, setArama] = useState('');
   };
 
   const aramaYap =(arama) => {
-
+    let filterArr = [];
+    filterArr = sahteVeri.filter((item) => {
+      return item.username.includes(arama);
+    })
+    setGonderiler(filterArr)
   }
 
   return (
     <div className='App'>
-      <AramaÇubuğu />
+      <AramaÇubuğu aramaYap={aramaYap} />
       <Gönderiler gonderiyiBegen = {gonderiyiBegen} gonderiler= {gonderiler}/>
     </div>
   );
